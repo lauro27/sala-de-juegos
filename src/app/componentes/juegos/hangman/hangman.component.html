@@ -1,0 +1,25 @@
+<p-toast/>
+<div class="content">
+    <h1>Seleccione la siguiente letra</h1>
+    <div class="gameplay">
+        <div class ="info">
+            <img src="{{attemptsDir}}" alt="Ahorcado {{attemptsDir}}" class="hangmanImage">
+            <div class = "wordDisplay">
+                <span *ngFor="let letter of displayWord">{{letter}} </span>
+            </div>
+        </div>
+        <div class="letterButtonGrid">
+            <div>
+                <button *ngFor="let button of Letterbuttons" [disabled]="button.used" (click)="gameplayLoop(button.letter)" class="letterButton">
+                  {{ button.letter }}
+                </button>
+              </div>
+
+        </div>
+    </div>
+    <p>Intentos restantes: {{6 - attempts}}</p>
+    <div *ngIf="gameEnd">
+        <button title="Reiniciar" (click)="reset()">Reiniciar</button>
+    </div>
+    
+</div>

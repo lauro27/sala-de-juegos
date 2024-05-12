@@ -1,0 +1,21 @@
+<p-toast/>
+<p>Registrar usuario</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="user">Nombre de usuario</label>
+        <input id="user" type="text" formControlName = "user" required>
+    </div>
+    <div>
+        <input id="email" type="text" formControlName = "email" required>
+        <label for="email">E-mail</label>
+    </div>
+    <div>
+        <input id="emailRepeat" type="text" formControlName = "emailRepeat" required>
+        <label for="emailRepeat">E-mail</label>
+    </div>
+    <div>
+        <label for="password">Contraseña</label>
+        <input id="password" type="password" formControlName = "password" required>
+    </div>
+    <button type="submit">Registrar Usuario</button>
+</form>

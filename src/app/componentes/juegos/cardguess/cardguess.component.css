@@ -1,0 +1,33 @@
+.content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 255, 255, 0.518);
+    height: 100vh;
+}
+
+.gameplay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
+
+button{
+    margin: 15px;
+    padding: 15px;
+    border-width: 5px;
+    border-radius: 100px;
+    border-color:green;
+    border-style: solid;
+}
+button[disabled=true]{
+    border-color: red;
+}
+
+img{
+    margin: 15px;
+    padding: 15px;
+    border-width: 2px;
+    border-color:red;
+}

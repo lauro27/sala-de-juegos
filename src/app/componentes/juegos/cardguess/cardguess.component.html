@@ -1,0 +1,16 @@
+<p-toast/>
+<div class="content">
+    <h1>Indique si la siguiente carta es mayor o menor!</h1>
+    <div class="gameplay">
+        <button title="mayor" (click)="buttonMayor()" [disabled]="buttonDisable"><i class="pi pi-angle-double-up"></i></button>
+        <button title="menor" (click)="buttonMenor()" [disabled]="buttonDisable"><i class="pi pi-angle-double-down"></i></button>
+        <img src="{{checkDir}}" alt="Resultado" class="pokeImage">
+        Carta anterior:<br><img src="{{previousCardDir}}" alt="Carta anterior">
+        Restantes: {{myDeck.length}}
+    </div>
+    <p>Puntaje: {{score}}</p>
+    <div *ngIf="buttonDisable">
+        <button title="Reiniciar" (click)="reset()">Reiniciar</button>
+    </div>
+    
+</div>

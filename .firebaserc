@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "tp-labo4-lamas-2024"
+  },
+  "targets": {
+    "tp-labo4-lamas-2024": {
+      "hosting": {
+        "sala-de-juegos": [
+          "tp-labo4-lamas-2024"
+        ]
+      }
+    }
+  }
+}

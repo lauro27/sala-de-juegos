@@ -1,0 +1,45 @@
+.content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 255, 255, 0.518);
+    height: 100vh;
+}
+
+.gameplay{
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+.letterButtonGrid{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.letterButton{
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 32px;
+    font-weight: bold;
+    border-width: 2px;
+    border-color: green;
+    margin: 10px;
+}
+.wordDisplay{
+    font-size: 32px;
+    font-weight: bold;
+    width:100%;
+    
+}
+.info{
+    display:flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.hangmanImage{
+    resize: none;
+    align-self:center;
+    
+}

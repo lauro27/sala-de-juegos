@@ -1,0 +1,42 @@
+<div class="content">
+    <h1>Bienvenido!</h1>
+    <p>Seleccione su juego</p>
+    <div class="gameSelect">
+        <div class = game>
+            <p-card header="Ahorcado">
+                <img src="../../../assets/banners/hangman.png" alt="Ahorcado" class="gameBanner">
+                <p class="m-0">
+                    El clasico juego de adivinar palabras
+                </p>
+            <button (click)="goHangman()" class="gameButton">Jugar</button>
+            </p-card>
+        </div>
+        <div class = game>
+            <p-card header="Mayor o menor">
+                <img src="../../../assets/banners/cardguess.png" alt="Mayor o menor" class="gameBanner">
+                <p class="m-0">
+                    Adivine la siguiente carta
+                </p>
+                <button (click)="goCardGuess()" class="gameButton">Jugar</button>
+            </p-card>
+        </div>
+        <div class = game>
+            <p-card header="¿Quien es ese Pokémon?">
+                <img src="../../../assets/banners/trivia.png" alt="¿Quien es ese Pokémon?" class="gameBanner">
+                <p class="m-0">
+                    Hay mas de 1000 ahora. ¿Los puede reconocer?
+                </p>
+                <button (click)="goTrivia()" class="gameButton">Jugar</button>
+            </p-card>
+        </div>
+        <div class = game>
+            <p-card header="Custom">
+                <img src="../../../assets/banners/cardguess.png" alt="Custom" class="gameBanner">
+                <p class="m-0">
+                    Seguro va a estar piola
+                </p>
+                <button (click)="goCustom()" class="gameButton">Jugar</button>
+            </p-card>
+        </div>
+    </div>
+</div>

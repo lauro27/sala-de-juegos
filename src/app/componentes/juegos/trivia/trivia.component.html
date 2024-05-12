@@ -1,0 +1,20 @@
+<p-toast/>
+<div class="content">
+    <div class="answers">
+        <p>respuestas:</p>
+        <img *ngFor="let a of answers" src="{{assetDirectory}}{{a}}.png" alt="respuesta">
+    </div>
+    <div class="gameplay">
+    <h1>¿Quien es ese Pokémon?</h1>
+    <img src="{{triviaImg}}" alt="Check" class="pokeImage" *ngIf="options.length == 4">
+    <div class="optionsGrid" *ngIf="options.length == 4">
+        <button *ngFor="let button of options" (click)="answerQuestion(button.correct)" class="optionButton" [disabled]="gameEnd">
+            {{button.name}}
+        </button>
+    </div>
+    <p>Puntaje: {{score}}</p>
+    <div *ngIf="gameEnd">
+        <button title="Reiniciar" (click)="reset()">Reiniciar</button>
+    </div>
+    </div>
+</div>

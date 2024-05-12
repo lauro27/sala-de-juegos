@@ -1,0 +1,33 @@
+.gameSelect{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: stretch;
+    align-content: flex-start;
+    width: 100%;
+}
+.game{
+    align-self: stretch;
+    width:20%;
+    border: 20px, lightblue;
+}
+.gameBanner{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.gameButton{
+    width:90%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #90ee90;
+    box-shadow: 200px, gray;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 255, 255, 0.518);
+    height: 100vh;
+}

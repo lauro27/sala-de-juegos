@@ -1,0 +1,42 @@
+.content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(0, 255, 255, 0.518);
+    height: 100vh;
+}
+.gameplay{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.optionsGrid{
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.answers{
+    display:flex;
+    align-items: center;
+}
+
+.optionButton{
+    width: 45%;
+    margin: 10px;
+    font-size: 32px;
+    font-weight: bold;
+    border-width: 2px;
+    border-color: red;
+    margin: 10px;
+}
+
+.pokeImage{
+    image-rendering: optimizeSpeed; 
+    
+    image-rendering: pixelated; 
+
+    width: 50%;
+    max-width: 100%;
+    align-self: center;
+}

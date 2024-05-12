@@ -1,0 +1,18 @@
+.content{
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    gap: 15px;
+    background-color: lightgreen;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+}
+.navButton{
+    padding: 5px;
+    margin:0px;
+}
+.navButtonLogoff{
+    margin-left:auto;
+    color:red;
+}
