@@ -9,10 +9,22 @@
     width: 100%;
 }
 .navButton{
-    padding: 5px;
+    padding: 15px;
     margin:0px;
+    border: solid;
+    background-color:lightgreen;
+    border-width: 0px medium 0px medium;
+    border-color: green;
+    display: inline-block;
 }
-.navButtonLogoff{
+
+.navButton.navButtonLogoff{
     margin-left:auto;
     color:red;
+
+    border-color: red;
+}
+
+.welcomeLabel{
+    align-self: center;
 }

@@ -1,0 +1,30 @@
+.content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-flow: center;
+    align-content: center;
+    background-color: rgba(0, 255, 255, 0.518);
+    height: 100vh;
+}
+
+.formRow{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-flow: center;
+    align-content: center;
+    align-items: center;
+    min-width: 50%;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px;
+}
+.formItem{
+    min-width: 20%;
+}
+
+.formField{
+    margin-left:auto;
+    justify-self: flex-end;
+}

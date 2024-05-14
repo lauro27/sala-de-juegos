@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../servicios/authentication.service';
 @Component({
@@ -9,10 +9,15 @@ import { AuthenticationService } from '../../servicios/authentication.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  authService = inject(AuthenticationService);
+
   constructor(
-    private router:Router,
-    private authService: AuthenticationService
+    private router:Router
   ){}
+
+  goHome():void{
+    this.router.navigate(['/home']);
+  }
 
   goLogin(): void{
     this.router.navigate(['/login']);
@@ -21,6 +26,11 @@ export class NavbarComponent {
     this.router.navigate(['/registro']);
   }
   logout(): void{
-    console.log('logout');
+    this.authService.logOut();
+    this.router.navigate(['/login']);
+  }
+
+  goAbout():void{
+    this.router.navigate(['/about']);
   }
 }

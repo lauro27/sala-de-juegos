@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './guards/auth.guard';
+import { loggedGuard } from './guards/logged.guard';
 
 export const routes: Routes = [
     {
@@ -8,14 +10,17 @@ export const routes: Routes = [
     },
     {
         path: 'home',
+        canActivate: [authGuard],
         loadComponent: () => import('./componentes/home/home.component').then(m => m.HomeComponent)
     },
     {
         path: 'login',
+        canActivate: [loggedGuard],
         loadComponent: () => import('./componentes/login/login.component').then(m => m.LoginComponent)
     },
     {
         path: 'registro',
+        canActivate: [loggedGuard],
         loadComponent: () => import('./componentes/registro/registro.component').then(m => m.RegistroComponent)
     },
     {
@@ -27,14 +32,17 @@ export const routes: Routes = [
         children:[
             {
                 path: 'cardguess',
+                canActivate: [authGuard],
                 loadComponent: () => import('./componentes/juegos/cardguess/cardguess.component').then(m => m.CardguessComponent)
             },
             {
                 path: 'hangman',
+                canActivate: [authGuard],
                 loadComponent: () => import('./componentes/juegos/hangman/hangman.component').then(m => m.HangmanComponent)
             },
             {
                 path: 'trivia',
+                canActivate: [authGuard],
                 loadComponent: () => import('./componentes/juegos/trivia/trivia.component').then(m => m.TriviaComponent)
             }
         ]

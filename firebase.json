@@ -1,23 +1,14 @@
 {
-  "hosting": [
-    {
-      "public": "dist/sala-de-juegos/browser",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
-      "target": "sala-de-juegos",
-      "source": ".",
-      "frameworksBackend": {}
+  "hosting": {
+    "public": "dist/sala-de-juegos/public",
+    "source": ".",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "frameworksBackend": {
+      "region": "us-central1"
     }
-  ]
+  }
 }

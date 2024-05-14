@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { AuthenticationService } from '../../servicios/authentication.service';
+import { LoggerService } from '../../servicios/logger.service';
 
 @Component({
   selector: 'app-login',
@@ -24,12 +25,12 @@ export class LoginComponent {
   http = inject(HttpClient);
   router = inject(Router);
   authService = inject(AuthenticationService);
+  loggerService = inject(LoggerService);
 
   form = this.formBuilder.nonNullable.group({
     email: ['', Validators.required],
     password: ['', Validators.required]
   });
-  errorMessage:string | null = null;
 
   constructor(private messageService:MessageService){}
 
@@ -39,17 +40,63 @@ export class LoginComponent {
     this.authService
       .login(rawForm.email, rawForm.password)
       .subscribe( {next: () => {
+        this.loggerService.newLog(
+          {
+            email: rawForm.email,
+            action: "Inicio de sesión exitoso de usuario",
+            date: new Date().toISOString()
+          },
+        "logs");
         this.router.navigateByUrl('/');
       },
       error: (err) => {
-        this.errorMessage = err.code
+        this.showError(err.code);
+      }
+  });
+  }
+
+  debugUser():void{
+    this.authService
+      .login("user@gmail.com", "password")
+      .subscribe( {next: () => {
+        this.loggerService.newLog(
+          {
+            email: "user@gmail.com",
+            action: "Inicio de sesión exitoso de usuario",
+            date: new Date().toISOString()
+          },
+        "logs");
+        this.router.navigateByUrl('/');
+      },
+      error: (err) => {
         this.showError(err.code);
       }
   });
   }
 
   showError( text: string) {
-    console.log('Authentication Failed');
+    let msg;
+    console.log('Registro fallido');
+    switch (text) {
+      case 'auth/email-already-in-use':
+        msg = `Dirección de correo ${this.email} en uso.`;
+        break;
+      case 'auth/invalid-email':
+        msg = `Dirección de correo ${this.email} invalida.`;
+        break;
+      case 'auth/operation-not-allowed':
+        msg = `Error durante registro.`;
+        break;
+      case 'auth/weak-password':
+        msg = 'La contraseña es muy debil. Se recomienda agregar numeros y simbolos';
+        break;
+      case 'auth/invalid-credential':
+        msg = 'Usuario o contraseña incorrectos';
+        break;
+      default:
+        msg = text;
+        break;
+    }
     this.messageService.add({
         severity: 'error',
         summary: 'Error',

@@ -1,5 +1,17 @@
 <div class="content">
-    <button (click)="goLogin()" class="navButton">Iniciar Sesión</button>
-    <button (click)="goRegistro()" class="navButton">Crear usuario</button>
-    <button (click)="logout()" class="navButton navButtonLogoff">Logout</button>
+    @if (authService.currentUserSig() == null) {
+        <button (click)="goLogin()" class="navButton">Iniciar Sesión</button>
+        <button (click)="goRegistro()" class="navButton">Crear usuario</button>
+        
+    }
+    @if(authService.currentUserSig()){
+        <button title="home" (click)="goHome()" class="homeButton navButton "><i class="pi pi-home"></i></button>
+        <div class="welcomeLabel">Bienvenido {{authService.currentUserSig()?.username}}</div>
+    }
+    <button (click)="goAbout()" class="navButton navButtonAbout">Acerca de</button>
+    
+    @if(authService.currentUserSig()){
+        <button (click)="logout()" class="navButton navButtonLogoff">Logout</button>
+    }
+    
 </div>

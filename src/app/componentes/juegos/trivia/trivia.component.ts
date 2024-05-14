@@ -78,8 +78,6 @@ export class TriviaComponent {
               const j = Math.floor(Math.random() * (i + 1));
               [this.options[i], this.options[j]] = [this.options[j], this.options[i]];
           }
-
-          let find;
       });
     });
     console.log(this.options);
