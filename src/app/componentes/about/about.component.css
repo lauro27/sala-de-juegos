@@ -1,0 +1,25 @@
+.slice-box-container{
+    display: flex;
+    flex-direction: column;
+    border:40px solid transparent;
+    border-image: url(../../../assets/9slice.png) 20 20 20 20 fill;
+    margin: 20px;
+    width: 70vw;
+    justify-content: center;
+    gap: 10px;
+}
+
+.photo{
+    border:20px solid transparent;
+    border-image: url(../../../assets/9slicegreen.png) 20 20 20 20 fill;
+    width: 25vw;
+    height: auto;
+    flex-shrink: 2;
+    margin: 20px;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

@@ -7,6 +7,7 @@
 
 .gameplay{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: stretch;
@@ -24,15 +25,19 @@ button[disabled=true]{
     border-color: red;
 }
 
-img{
-    margin: 15px;
-    padding: 15px;
-    border-width: 2px;
-    border-color:red;
+.hand{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    margin: 2px;
 }
 
 .slice-box-container{
     border:40px solid transparent;
     border-image: url(../../../../assets/9slice.png) 20 20 20 20 fill;
     margin: 20px;
+    width: 90vw;
+    align-items: center;
+    justify-content: center;
 }

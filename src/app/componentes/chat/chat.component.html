@@ -1,4 +1,16 @@
 <div class="content">
-    
-    <input id="message" type="text" formControlName = "message" class="formItem formField">
+    <button title="toggleChat" (click)="toggleChat()" class="toggle-chat"><i [ngClass]="renderChat? 'pi pi-times-circle': 'pi pi-comments'"></i></button>
+@if(renderChat){
+<div class="chat-box">
+    <div class="message-container">
+        <div *ngFor="let msg of messages">
+            <app-mensaje  [msg]="msg" [ngClass]="msg.user == user? 'sent':'recieved'"></app-mensaje>
+        </div>
+    </div>
+    <div class="sender">
+        <input id="message" type="text" name="message" autocomplete="off" [ngModelOptions]="{standalone: true}" [(ngModel)]="message" class="chat-input" placeholder="Mensaje...">
+        <button title="send" (click)="sendMessage()" class="chat-send"><i class="pi pi-send"></i></button>
+    </div>
+</div>
+}
 </div>

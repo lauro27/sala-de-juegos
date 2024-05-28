@@ -4,6 +4,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class CardguessComponent{
   buttonDisable:boolean = false;
 
   //UI
-  assetDirectory:string = "../../../../assets/cards/";
+  assetDirectory:string = "../../assets/cards/";
   check:string = "none";
   previousCardDir: string;
   checkDir:string;
@@ -62,6 +63,7 @@ export class CardguessComponent{
     this.previousCard = newCard;
     this.previousCardDir = this.assetDirectory + this.previousCard.suit + "/" + this.previousCard.value +".png"
     this.checkDir = this.assetDirectory + this.check + ".png"
+    console.log(this.previousCardDir);
     if(this.myDeck.length <=0){
       this.buttonDisable = true;
       this.messageService.add({
@@ -115,4 +117,10 @@ export class CardguessComponent{
     this.checkDir = this.assetDirectory + this.check + ".png";
     this.buttonDisable = false;
   }
+
+  /*getImg(imgSrcRaw: string) {
+    let ref = this.st.ref(imgSrcRaw);
+    this.previousCardDir = ref.getDownloadURL();
+    return this.previousCardDir;
+  }*/
 }

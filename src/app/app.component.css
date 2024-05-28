@@ -1,0 +1,17 @@
+.main{
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+}
+.nav{
+    flex: 0 1 auto;
+}
+.content{
+    flex: 1 1 auto;
+    background-color: lightskyblue;
+    background-image: url("../assets/bottombg.png");
+    background-repeat: repeat-x;
+    background-attachment: fixed;
+    background-position: 0% 100%;
+    height: 100%;
+}

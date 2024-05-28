@@ -1,4 +1,4 @@
-;
+
 import { getDatabase, provideDatabase } from '@angular/fire/database';
 import { getAuth, provideAuth } from '@angular/fire/auth'
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';

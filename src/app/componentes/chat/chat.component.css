@@ -1,0 +1,72 @@
+.content{
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+}
+
+.chat-box{
+    display: flex;
+    flex-direction: column;
+    border: 20px solid transparent;
+    border-image: url(../../../assets/9slice.png) 20 20 20 20 fill;
+    width: 30vw;
+    height: 40vh;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+.message-container{
+    flex: 1;
+    overflow-y: auto;
+    border:20px solid transparent;
+    border-image: url(../../../assets/9slicegreen.png) 20 20 20 20 fill;
+    width:100%;
+    height: auto;
+    position:relative;
+    margin: 2px;
+}
+
+.chat-input{
+    display: flex;
+    width:100%;
+    outline: 5px solid aqua;
+    
+
+    background-position: center;
+    background-size: cover;
+}
+.sender{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 6px;
+}
+
+.chat-send{
+    width:20%;
+}
+
+.sent{
+    display: flex;
+    border:5px solid transparent;
+    border-image: url(../../../assets/9sliceblueline.png) 10 10 10 10 fill;
+    width:90%;
+    margin-left: auto;
+}
+
+.recieved{
+    display: flex;
+    border:5px solid transparent;
+    border-image: url(../../../assets/9slicegreen.png) 10 10 10 10 fill;
+    width:90%;
+}
+
+.toggle-chat{
+    height: 40px;
+    width: 40px;
+    margin-bottom: 0px;
+    border: 5px;
+    border-color: lime;
+}

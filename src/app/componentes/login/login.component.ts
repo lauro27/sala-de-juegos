@@ -94,7 +94,7 @@ export class LoginComponent {
         msg = 'Usuario o contraseña incorrectos';
         break;
       default:
-        msg = text;
+        msg = "Error de inicio de sesión";
         break;
     }
     this.messageService.add({

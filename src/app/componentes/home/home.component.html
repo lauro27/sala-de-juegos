@@ -1,6 +1,8 @@
 <div class="content">
-    <h1>Bienvenido!</h1>
-    <p>Seleccione su juego</p>
+    <div class="header">
+        <h1>Bienvenido!</h1>
+        <span>Seleccione su juego</span>    
+    </div>
     <div class="gameSelect">
         <div class = game>
             <p-card header="Ahorcado">
@@ -30,12 +32,12 @@
             </p-card>
         </div>
         <div class = game>
-            <p-card header="Custom">
+            <p-card header="Black Jack">
                 <img src="../../../assets/banners/cardguess.png" alt="Custom" class="gameBanner">
                 <p class="m-0">
-                    Seguro va a estar piola
+                    El clasico juego de 21
                 </p>
-                <button (click)="goCustom()" class="gameButton">Jugar</button>
+                <button (click)="goBlackJack()" class="gameButton">Jugar</button>
             </p-card>
         </div>
     </div>

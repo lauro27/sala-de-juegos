@@ -1,21 +1,20 @@
 .content{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgba(0, 255, 255, 0.518);
     height: 100vh;
 }
 
 .gameplay{
     display: flex;
     align-items: center;
-    width: 70%;
+    justify-self: center;
+    width: 100%;
 }
 .letterButtonGrid{
     display: flex;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
+    width: auto;
+    flex-shrink: 3;
 }
 .letterButton{
     padding-left: 10px;
@@ -30,16 +29,27 @@
     font-size: 32px;
     font-weight: bold;
     width:100%;
+    flex-wrap: nowrap;
     
 }
 .info{
     display:flex;
     flex-direction: column;
-    width: 40%;
+    width: auto;
+    flex-grow: 3;
 }
 
 .hangmanImage{
     resize: none;
     align-self:center;
     
+}
+
+.slice-box-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border:40px solid transparent;
+    border-image: url(../../../../assets/9slice.png) 20 20 20 20 fill;
+    width: 90vw;
 }

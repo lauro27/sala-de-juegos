@@ -4,8 +4,6 @@
     flex-direction: column;
     flex-flow: center;
     align-content: center;
-    background-color: rgba(0, 255, 255, 0.518);
-    height: 100vh;
 }
 
 .formRow{

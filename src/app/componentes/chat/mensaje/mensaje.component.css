@@ -1,0 +1,10 @@
+.user{
+    font-size: small;
+}
+
+.sent{
+    display: flex;
+    border:5px solid transparent;
+    border-image: url(../../../../assets/9sliceblueline.png) 10 10 10 10 fill;
+    width:100%;
+}

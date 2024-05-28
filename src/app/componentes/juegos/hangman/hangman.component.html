@@ -1,5 +1,6 @@
 <p-toast/>
 <div class="content">
+    <div class="slice-box-container">
     <h1>Seleccione la siguiente letra</h1>
     <div class="gameplay">
         <div class ="info">
@@ -17,9 +18,9 @@
 
         </div>
     </div>
-    <p>Intentos restantes: {{6 - attempts}}</p>
+    <span>Intentos restantes: {{6 - attempts}}</span>
     <div *ngIf="gameEnd">
         <button title="Reiniciar" (click)="reset()">Reiniciar</button>
     </div>
-    
+</div>
 </div>

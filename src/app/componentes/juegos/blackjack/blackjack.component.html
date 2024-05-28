@@ -1,0 +1,34 @@
+<p-toast/>
+<div class="content">
+    <div class="slice-box-container">
+        <div class="scoreboard">
+            Ronda {{currentRound}} de {{maxRound}}
+        </div>
+        <div class="scoreboard">
+            Tu: {{myScore}} - El: {{dealerScore}}
+        </div>
+        <div class="gameplay">
+            <div class="hand-info">
+                <div class="hand">
+                    <span>Tu mano ({{myHandScore}}): </span>
+                    <img *ngFor="let card of myHandDir" src="{{card}}" alt="{{card}}" class>
+                </div>
+                <div class="hand">
+                    <span>Mano del croupier ({{dealerHandScore}}): </span>
+                    <img *ngFor="let card of dealerHandDir" src="{{card}}" alt="{{card}}" class>
+                </div>
+            </div>
+            <div *ngIf="!myFinished">
+                <!--botones de acción-->
+                <button title="hit" (click)="myGameplayLoop(true)">Otra carta</button>
+                <button title="stand" (click)="myGameplayLoop(false)">Plantarse</button>
+            </div>
+            <div *ngIf="myFinished">
+                <button *ngIf="!roundEnd" (click)="dealerGameplayLoop(true)">Continuar</button>
+                <button *ngIf="roundEnd && !gameFinished" (click)="dealerGameplayLoop(false)">Siguiente ronda</button>
+                <button *ngIf="gameFinished" (click)="resetGame()">Reiniciar</button>
+
+            </div>
+        </div>
+    </div>
+</div>

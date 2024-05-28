@@ -11,4 +11,6 @@
 *{
     font-family: 'ToshibaTxL2';
     font-size: large;
+    margin: 0;
+    image-rendering: optimizeQuality;
 }

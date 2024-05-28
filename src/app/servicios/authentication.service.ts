@@ -32,4 +32,7 @@ export class AuthenticationService {
     this.currentUserSig = signal(null);
     return from(promise);
   }
+  isLoggedIn(){
+    return !!this.currentUserSig;
+  }
 }

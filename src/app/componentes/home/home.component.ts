@@ -21,8 +21,8 @@ export class HomeComponent {
   goCardGuess(){
     this.router.navigateByUrl('/game/cardguess');
   }
-  goCustom(){
-    this.router.navigateByUrl('/');
+  goBlackJack(){
+    this.router.navigateByUrl('/game/blackjack');
   }
 
 }

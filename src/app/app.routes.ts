@@ -44,6 +44,11 @@ export const routes: Routes = [
                 path: 'trivia',
                 canActivate: [authGuard],
                 loadComponent: () => import('./componentes/juegos/trivia/trivia.component').then(m => m.TriviaComponent)
+            },
+            {
+                path: 'blackjack',
+                canActivate: [authGuard],
+                loadComponent: () => import('./componentes/juegos/blackjack/blackjack.component').then(m => m.BlackjackComponent)  
             }
         ]
     },
