@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { Card } from '../../../interfaces/card';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { LoggerService } from '../../../servicios/logger.service';
+import { AuthenticationService } from '../../../servicios/authentication.service';
 
 @Component({
   selector: 'app-blackjack',
@@ -14,6 +16,10 @@ import { CommonModule } from '@angular/common';
   providers: [MessageService, provideAnimations()]
 })
 export class BlackjackComponent {
+  authService = inject(AuthenticationService);
+  loggerService = inject(LoggerService);
+  user:string|undefined|null;
+
   //MECHANICS
   myDeck:Card[] = []; //deck of cards
   myHand:Card[] = []; 
@@ -37,6 +43,7 @@ export class BlackjackComponent {
 
 
   constructor(private messageService: MessageService){
+    this.authService.user$.subscribe( (value) => this.user = value?.displayName);
     console.log("game start");
     this.roundStart();
   }
@@ -82,13 +89,15 @@ export class BlackjackComponent {
       }
     }else{
       this.myFinished = true;
-      this.dealerHand.push(this.drawDeck(this.myDeck));
     }
     this.renderCards();
   }
 
   dealerGameplayLoop(next:boolean){ //datazo, continue es palabra protegida
     if(next){
+      console.log(this.dealerHand);
+      console.log(this.myHand);
+      console.log((this.calculateScore(this.dealerHand) >= this.calculateScore(this.myHand)));
       this.dealerHand.push(this.drawDeck(this.myDeck));
       if(this.calculateScore(this.dealerHand) > 21){
         this.roundEnd = true;
@@ -114,6 +123,13 @@ export class BlackjackComponent {
     if(this.currentRound>=this.maxRound){
       this.gameFinished=true;
       let victory = this.myScore >= this.dealerScore;
+      if(this.user){
+        this.loggerService.newScore({
+          user: this.user, 
+          score: this.myScore,
+          game: "blackjack",
+          date: Date.now().toString()
+      });}
       this.messageService.add({
         severity: victory?'success':'error',
         sticky: true,

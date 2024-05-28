@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Card } from '../../../interfaces/card';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-
+import { LoggerService } from '../../../servicios/logger.service';
+import { AuthenticationService } from '../../../servicios/authentication.service';
 
 @Component({
   selector: 'app-cardguess',
@@ -16,6 +17,9 @@ import { AngularFireStorage } from '@angular/fire/compat/storage';
   providers: [MessageService, provideAnimations()]
 })
 export class CardguessComponent{
+  authService = inject(AuthenticationService);
+  loggerService = inject(LoggerService);
+  user:string|undefined|null;
 
   //mechanics
   myDeck:Card[];
@@ -39,6 +43,7 @@ export class CardguessComponent{
     this.previousCard = this.drawDeck(this.myDeck);
     this.previousCardDir = this.assetDirectory + this.previousCard.suit + "/" + this.previousCard.value +".png"
     this.checkDir = this.assetDirectory + this.check + ".png"
+    this.authService.user$.subscribe( (value) => this.user = value?.displayName);
   }
   buttonMayor(){
     this.gameplayLoop(true);
@@ -66,6 +71,13 @@ export class CardguessComponent{
     console.log(this.previousCardDir);
     if(this.myDeck.length <=0){
       this.buttonDisable = true;
+      if(this.user){
+        this.loggerService.newScore({
+          user: this.user, 
+          score: this.score,
+          game: "cardguess",
+          date: Date.now().toString()
+      });}
       this.messageService.add({
         severity: 'success',
         sticky: true,

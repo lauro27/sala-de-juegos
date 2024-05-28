@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { HangmanButton } from '../../../interfaces/hangman-button';
 import { HangmanService } from '../../../servicios/hangman.service';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { LoggerService } from '../../../servicios/logger.service';
+import { AuthenticationService } from '../../../servicios/authentication.service';
 
 const maxAttempts: number = 6;
 const assetDirectory:string = "../../../../assets/hangman/";
@@ -23,6 +25,10 @@ const wordApi: string = "https://clientes.api.greenborn.com.ar/public-random-wor
   providers: [MessageService, provideAnimations()]
 })
 export class HangmanComponent {
+  authService = inject(AuthenticationService);
+  loggerService = inject(LoggerService);
+  user:string|undefined|null;
+
   //mechanics
   word :string = "";
   wordArray: string[] = [];
@@ -36,6 +42,7 @@ export class HangmanComponent {
   displayWord:string[] = [];
 
   constructor(private messageService: MessageService, private hangmanService:HangmanService){
+    this.authService.user$.subscribe( (value) => this.user = value?.displayName);
     this.hangmanService.getPalabra().subscribe(result => {
       this.word = result[0].toUpperCase();
       this.word = this.word.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -80,6 +87,13 @@ export class HangmanComponent {
 
 
   triggerWinState(){
+    if(this.user){
+      this.loggerService.newScore({
+        user: this.user, 
+        score: this.attempts,
+        game: "hangman",
+        date: Date.now().toString()
+    });}
     this.messageService.add({
       severity: 'success',
       sticky: true,
@@ -93,6 +107,13 @@ export class HangmanComponent {
   }
 
   triggerFailState(){
+    if(this.user){
+      this.loggerService.newScore({
+        user: this.user, 
+        score: this.attempts,
+        game: "hangman",
+        date: Date.now().toString()
+    });}
     this.messageService.add({
       severity: 'error',
       sticky: true,

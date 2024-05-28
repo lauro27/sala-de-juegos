@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './guards/auth.guard';
 import { loggedGuard } from './guards/logged.guard';
+import { adminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
     {
@@ -51,6 +52,11 @@ export const routes: Routes = [
                 loadComponent: () => import('./componentes/juegos/blackjack/blackjack.component').then(m => m.BlackjackComponent)  
             }
         ]
+    },
+    {
+        path:"admin",
+        canActivate: [adminGuard],
+        loadComponent: () => import('./componentes/admin/admin.component').then(m => m.AdminComponent)
     },
     { 
         path: '**',

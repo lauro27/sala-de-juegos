@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, FormControl, FormGroup, Validators, FormsModule } from '@angular/forms';
@@ -26,7 +26,6 @@ export class RegistroComponent{
   password!:string;
 
   formBuilder = inject(FormBuilder);
-  http = inject(HttpClient);
   authService = inject(AuthenticationService);
   router = inject(Router);
   loggerService = inject(LoggerService);
@@ -57,8 +56,7 @@ export class RegistroComponent{
             email: rawForm.email,
             action: "Registro exitoso de usuario",
             date: new Date().toISOString()
-          },
-        "logs");
+          });
         this.router.navigateByUrl('/');
       },
       error: (err) => {

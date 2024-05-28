@@ -1,0 +1,27 @@
+
+<div class="slice-box-container">
+    <p-table [value]="surveys">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Usuario</th>
+        <th>Edad</th>
+        <th>Telefono</th>
+        <th>Genero</th>
+        <th>Dificultad</th>
+        <th>Recomienda</th>
+        <th>Sugerencia</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-surveyItem>
+      <tr>
+        <td>{{ surveyItem.user }}</td>
+        <td>{{ surveyItem.age }}</td>
+        <td>{{ surveyItem.phone }}</td>
+        <td>{{ surveyItem.gender }}</td>
+        <td>{{ surveyItem.difficulty }}</td>
+        <td>{{ surveyItem.recommend ? 'Si' : 'No' }}</td>
+        <td>{{ surveyItem.suggestion }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

@@ -7,6 +7,9 @@
     @if(authService.currentUserSig()){
         <button title="home" (click)="goHome()" class="homeButton navButton "><i class="pi pi-home"></i></button>
         <div class="welcomeLabel">Bienvenido {{authService.currentUserSig()?.username}}</div>
+        @if(isAdmin){
+            <button (click)="goAdmin()" class="navButton">Resultados</button>
+        }
     }
     <button (click)="goAbout()" class="navButton navButtonAbout">Acerca de</button>
     

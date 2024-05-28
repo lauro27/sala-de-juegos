@@ -1,0 +1,10 @@
+
+.slice-box-container{
+    overflow-y: auto;
+    border:40px solid transparent;
+    border-image: url(../../../assets/9slice.png) 20 20 20 20 fill;
+    margin: 20px;
+    width: 90vw;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TriviaOption } from '../../../interfaces/trivia-option';
 import { PokemonService } from '../../../servicios/pokemon.service';
 import { MessageService } from 'primeng/api';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
+import { LoggerService } from '../../../servicios/logger.service';
+import { user } from '@angular/fire/auth';
+import { AuthenticationService } from '../../../servicios/authentication.service';
 
 const maxDex = 1024;
 const maxQuestion = 10;
@@ -17,6 +20,10 @@ const maxQuestion = 10;
   providers: [MessageService, provideAnimations()]
 })
 export class TriviaComponent {
+  authService = inject(AuthenticationService);
+  loggerService = inject(LoggerService);
+  user:string|undefined|null;
+
   //mechanics
   options:TriviaOption[] = [];
   currentQuestion: number = 1;
@@ -29,6 +36,7 @@ export class TriviaComponent {
   assetDirectory:string = "../../../../assets/cards/";
 
   constructor(private messageService: MessageService, private pokemonService:PokemonService){
+    this.authService.user$.subscribe( (value) => this.user = value?.displayName);
     this.fetchPokemon();
     this.answers = ["none","none","none","none","none","none","none","none","none","none"]
   }
@@ -46,6 +54,13 @@ export class TriviaComponent {
   }
 
   triggerEndGame(){
+    if(this.user){
+      this.loggerService.newScore({
+        user: this.user, 
+        score: this.score,
+        game: "trivia",
+        date: Date.now().toString()
+    });}
     this.messageService.add({
       severity: 'success',
       sticky: true,

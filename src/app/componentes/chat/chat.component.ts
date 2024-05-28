@@ -6,11 +6,12 @@ import { AuthenticationService } from '../../servicios/authentication.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { InputTextModule } from 'primeng/inputtext';
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [RouterModule, MensajeComponent, FormsModule, CommonModule],
+  imports: [RouterModule, MensajeComponent, FormsModule, CommonModule, InputTextModule],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.css'
 })

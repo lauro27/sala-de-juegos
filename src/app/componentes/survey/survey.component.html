@@ -1,0 +1,86 @@
+<div class="survey-container" [class.open]="isOpen">
+    <button class="survey-button" (click)="toggleSurvey()">
+        @if (!isOpen) {Envía tu comentario}
+        @else {<i class="pi pi-times-circle"></i>}
+    </button>
+    <div *ngIf="isOpen">
+      <h2>Encuesta</h2>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Edad -->
+        <div class="formRow">
+            <label for="age" class="formItem">Edad: </label>
+            <input pInputText id="age" type="number" formControlName="age" required class="formItem formField" max="99" class="number-input">
+            <div *ngIf="form.get('age')?.touched && form.get('age')?.invalid" class="error-message">
+                <span *ngIf="form.get('age')?.errors?.['required']">Edad es requerida.</span>
+                <span *ngIf="form.get('age')?.errors?.['max']">Edad no puede ser mayor de 99.</span>
+            </div>
+        </div>
+        
+        <!-- Telefono -->
+        <div class="formRow">
+            <label for="phone" class="formItem">Telefono</label>
+            <input pInputText id="phone" type="tel" formControlName="phone" required class="formItem formField">
+            <div *ngIf="form.get('phone')?.touched && form.get('phone')?.invalid" class="error-message">
+                <span *ngIf="form.get('phone')?.errors?.['required']">Teléfono es requerido.</span>
+                <span *ngIf="form.get('phone')?.errors?.['pattern']">Formato de teléfono inválido.</span>
+            </div>
+        </div>
+        
+        <!-- Genero -->
+        <div class="formRow">
+            <label for="gender" class="formItem">Genero: </label>
+            <div *ngFor="let g of genders" class="field-checkbox">
+                <p-radioButton 
+                    [inputId]="g" 
+                    [value]="g"
+                    formControlName="gender"
+                    name="gender" />
+                <label [for]="g" class="ml-2">
+                    {{ g }}
+                </label>
+            </div>
+            <div *ngIf="form.get('selectedCategory')?.touched && form.get('selectedCategory')?.invalid" class="error-message">
+                <span *ngIf="form.get('selectedCategory')?.errors?.['required']">Seleccione un género.</span>
+            </div>
+        </div>
+        
+        <!-- Dificultad -->
+        <div class="formRow">
+            <label for="difficulty" class="formItem">¿Que te parece la dificultad de los juegos? </label>
+            <p-rating id="difficulty" formControlName="difficulty"></p-rating>
+            <div *ngIf="form.get('difficulty')?.touched && form.get('difficulty')?.invalid" class="error-message">
+                <span *ngIf="form.get('difficulty')?.errors?.['required']">Dificultad es requerida.</span>
+            </div>
+        </div>
+        
+        <!-- Recomendado -->
+        <div class="formRow">
+            <label for="recommend" class="formItem">¿Recomendarías esta pagina a conocidos?</label>
+            <p-checkbox 
+                [binary]= true
+                id="recommend"
+                formControlName="recommend" 
+                value="recommend" 
+                inputId="recommend"></p-checkbox>
+        </div>
+        
+        <!-- Comentario -->
+        <div class="formRow">
+            <label for="suggestion" class="formItem">Deja un comentario para poder mejorar</label>
+            <textarea 
+                id="suggestion"
+                rows="5" 
+                cols="30" 
+                pInputTextarea 
+                formControlName="suggestion"></textarea>
+            <div *ngIf="form.get('suggestion')?.touched && form.get('suggestion')?.invalid" class="error-message">
+                <span *ngIf="form.get('suggestion')?.errors?.['required']">Comentario es requerido.</span>
+            </div>
+        </div>
+    
+        <button type="submit">Enviar</button>
+    </form>
+      
+      
+    </div>
+  </div>

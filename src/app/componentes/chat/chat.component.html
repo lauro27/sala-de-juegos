@@ -8,7 +8,7 @@
         </div>
     </div>
     <div class="sender">
-        <input id="message" type="text" name="message" autocomplete="off" [ngModelOptions]="{standalone: true}" [(ngModel)]="message" class="chat-input" placeholder="Mensaje...">
+        <input pInputText  id="message" type="text" name="message" autocomplete="off" [ngModelOptions]="{standalone: true}" [(ngModel)]="message" class="chat-input" placeholder="Mensaje..." (keyup.enter)="sendMessage()">
         <button title="send" (click)="sendMessage()" class="chat-send"><i class="pi pi-send"></i></button>
     </div>
 </div>

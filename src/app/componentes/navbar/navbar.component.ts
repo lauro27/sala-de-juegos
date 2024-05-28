@@ -10,10 +10,12 @@ import { AuthenticationService } from '../../servicios/authentication.service';
 })
 export class NavbarComponent {
   authService = inject(AuthenticationService);
-
+  isAdmin = false;
   constructor(
     private router:Router
-  ){}
+  ){
+    this.authService.checkAdmin().subscribe( result => this.isAdmin = result);
+  }
 
   goHome():void{
     this.router.navigate(['/home']);
@@ -32,5 +34,9 @@ export class NavbarComponent {
 
   goAbout():void{
     this.router.navigate(['/about']);
+  }
+
+  goAdmin():void{
+    this.router.navigate(['/admin']);
   }
 }

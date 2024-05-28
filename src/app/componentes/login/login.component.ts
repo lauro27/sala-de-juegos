@@ -45,8 +45,7 @@ export class LoginComponent {
             email: rawForm.email,
             action: "Inicio de sesión exitoso de usuario",
             date: new Date().toISOString()
-          },
-        "logs");
+          });
         this.router.navigateByUrl('/');
       },
       error: (err) => {
@@ -64,8 +63,7 @@ export class LoginComponent {
             email: "user@gmail.com",
             action: "Inicio de sesión exitoso de usuario",
             date: new Date().toISOString()
-          },
-        "logs");
+          });
         this.router.navigateByUrl('/');
       },
       error: (err) => {

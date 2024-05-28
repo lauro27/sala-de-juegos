@@ -1,0 +1,33 @@
+.survey-container {
+    padding: 10px;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: -400px; 
+    width: 400px; 
+    height: 100%;
+    background: white;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    transition: left 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.survey-container.open {
+    left: 0;
+}
+
+.survey-button {
+    position: absolute;
+    top: 80%;
+    left: 100%; /* Position it right outside the survey container */
+    transform: translateY(-50%);
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+.number-input{width: 80px;}
+.form-row{
+    margin: 120px;
+}

@@ -3,10 +3,11 @@ import { RouterOutlet, RouterLink, RouterModule } from '@angular/router';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { AuthenticationService } from './servicios/authentication.service';
 import { ChatComponent } from './componentes/chat/chat.component';
+import { SurveyComponent } from './componentes/survey/survey.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterModule, NavbarComponent, ChatComponent],
+  imports: [RouterOutlet, RouterLink, RouterModule, NavbarComponent, ChatComponent, SurveyComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

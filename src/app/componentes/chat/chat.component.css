@@ -30,10 +30,7 @@
 
 .chat-input{
     display: flex;
-    width:100%;
-    outline: 5px solid aqua;
-    
-
+    width:90%;
     background-position: center;
     background-size: cover;
 }
@@ -45,7 +42,12 @@
 }
 
 .chat-send{
-    width:20%;
+    border-radius: 20px;
+    background-color: lightskyblue;
+    color: white;
+    height: auto;
+    width:max-content;
+    margin-left: 5px;
 }
 
 .sent{
