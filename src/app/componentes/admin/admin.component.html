@@ -1,27 +1,107 @@
-
-<div class="slice-box-container">
-    <p-table [value]="surveys">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Usuario</th>
-        <th>Edad</th>
-        <th>Telefono</th>
-        <th>Genero</th>
-        <th>Dificultad</th>
-        <th>Recomienda</th>
-        <th>Sugerencia</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-surveyItem>
-      <tr>
-        <td>{{ surveyItem.user }}</td>
-        <td>{{ surveyItem.age }}</td>
-        <td>{{ surveyItem.phone }}</td>
-        <td>{{ surveyItem.gender }}</td>
-        <td>{{ surveyItem.difficulty }}</td>
-        <td>{{ surveyItem.recommend ? 'Si' : 'No' }}</td>
-        <td>{{ surveyItem.suggestion }}</td>
-      </tr>
-    </ng-template>
-  </p-table>
+<div class = content>
+  <div class="slice-box-container">
+      <p-table [value]="surveys">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Usuario</th>
+          <th>Edad</th>
+          <th>Telefono</th>
+          <th>Genero</th>
+          <th>Dificultad</th>
+          <th>Recomienda</th>
+          <th>Sugerencia</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-surveyItem>
+        <tr>
+          <td>{{ surveyItem.user }}</td>
+          <td>{{ surveyItem.age }}</td>
+          <td>{{ surveyItem.phone }}</td>
+          <td>{{ surveyItem.gender }}</td>
+          <td>{{ surveyItem.difficulty }}</td>
+          <td>{{ surveyItem.recommend ? 'Si' : 'No' }}</td>
+          <td>{{ surveyItem.suggestion }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <!--GAMES-->
+  <div class="scores">
+    <div class="small-box-container">
+      <h3>Mayor o menor</h3>
+      <p-table [value]="cardguessScores">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Usuario</th>
+            <th>Puntaje</th>
+            <th>Fecha</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-scoreItem>
+          <tr>
+            <td>{{ scoreItem.user }}</td>
+            <td>{{ scoreItem.score }}</td>
+            <td>{{ scoreItem.date | date:"YYYY-MM-dd hh:mm:ss" }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div class="small-box-container">
+      <h3>Ahorcado</h3>
+      <p-table [value]="hangmanScores">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Usuario</th>
+            <th>Puntaje</th>
+            <th>Fecha</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-scoreItem>
+          <tr>
+            <td>{{ scoreItem.user }}</td>
+            <td>{{ scoreItem.score }}</td>
+            <td>{{ scoreItem.date | date:"YYYY-MM-dd hh:mm:ss" }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div class="small-box-container">
+      <h3>¿Quien es ese Pokémon?</h3>
+      <p-table [value]="triviaScores">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Usuario</th>
+            <th>Puntaje</th>
+            <th>Fecha</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-scoreItem>
+          <tr>
+            <td>{{ scoreItem.user }}</td>
+            <td>{{ scoreItem.score }}</td>
+            <td>{{ scoreItem.date | date:"YYYY-MM-dd hh:mm:ss" }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div class="small-box-container">
+      <h3>Black Jack</h3>
+      <p-table [value]="blackjackScores">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Usuario</th>
+            <th>Puntaje</th>
+            <th>Fecha</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-scoreItem>
+          <tr>
+            <td>{{ scoreItem.user }}</td>
+            <td>{{ scoreItem.score }}</td>
+            <td>{{ scoreItem.date | date:"YYYY-MM-dd hh:mm:ss" }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
 </div>

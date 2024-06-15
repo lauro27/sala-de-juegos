@@ -1,10 +1,23 @@
+.userline{
+    display: flex;
+    justify-content: space-between;
+}
 .user{
     font-size: small;
+}
+
+.date{
+    font-size: small;
+    color: gray;
 }
 
 .sent{
     display: flex;
     border:5px solid transparent;
     border-image: url(../../../../assets/9sliceblueline.png) 10 10 10 10 fill;
+    width:100%;
+}
+
+.content{
     width:100%;
 }

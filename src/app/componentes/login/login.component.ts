@@ -55,21 +55,8 @@ export class LoginComponent {
   }
 
   debugUser():void{
-    this.authService
-      .login("user@gmail.com", "password")
-      .subscribe( {next: () => {
-        this.loggerService.newLog(
-          {
-            email: "user@gmail.com",
-            action: "Inicio de sesión exitoso de usuario",
-            date: new Date().toISOString()
-          });
-        this.router.navigateByUrl('/');
-      },
-      error: (err) => {
-        this.showError(err.code);
-      }
-  });
+    this.form.get('email')?.setValue('user@gmail.com');
+    this.form.get('password')?.setValue('password');
   }
 
   showError( text: string) {

@@ -1,19 +1,24 @@
 .content{
     height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .gameplay{
     display: flex;
     align-items: center;
     justify-self: center;
+    flex-direction: column;
     width: 100%;
+    margin: 20px;
 }
 .letterButtonGrid{
     display: flex;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
-    width: auto;
+    width: 80%;
     flex-shrink: 3;
 }
 .letterButton{
@@ -52,4 +57,5 @@
     border:40px solid transparent;
     border-image: url(../../../../assets/9slice.png) 20 20 20 20 fill;
     width: 90vw;
+    margin-top: 30px;
 }

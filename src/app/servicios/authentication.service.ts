@@ -21,6 +21,7 @@ export class AuthenticationService {
       email, 
       password)
         .then((response)=> updateProfile(response.user, {displayName:username}));
+    
     return from(promise);
   }
   

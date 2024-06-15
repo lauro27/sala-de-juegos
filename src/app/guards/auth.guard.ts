@@ -1,7 +1,7 @@
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthenticationService } from '../servicios/authentication.service';
 import { inject } from '@angular/core';
-import { take, map, tap } from 'rxjs';
+import { take, map, tap, switchMap, of } from 'rxjs';
 
 export const authGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthenticationService);
@@ -11,13 +11,12 @@ export const authGuard: CanActivateFn = (route, state) => {
     take(1),
     map(estaLogeado => !! estaLogeado),
     tap(login => console.log(login)),
-    map(loggedIn => {
+    switchMap(loggedIn => {
       if (!loggedIn) {
         console.log("should redirect to login");
-        router.navigateByUrl('/login');
-        return false;
+        return router.navigateByUrl('/login').then(() => false);
       }
-      return true;
+      return of(true);
     })
   );
 };

@@ -1,11 +1,11 @@
 import { Component, Input, inject } from '@angular/core';
 import { ChatMessage } from '../../../interfaces/chat-message';
 import { AuthenticationService } from '../../../servicios/authentication.service';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-mensaje',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './mensaje.component.html',
   styleUrl: './mensaje.component.css'
 })

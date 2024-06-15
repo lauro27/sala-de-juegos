@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthenticationService } from '../servicios/authentication.service';
-import { take, map, tap } from 'rxjs';
+import { take, map, tap, switchMap, of } from 'rxjs';
 
 export const loggedGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthenticationService);
@@ -11,15 +11,14 @@ export const loggedGuard: CanActivateFn = (route, state) => {
     take(1),
     map(estaLogeado => !! estaLogeado),
     tap(login => console.log(login)),
-    map(loggedIn => {
+    switchMap(loggedIn => {
       console.log("loggedin: " + loggedIn);
       if (loggedIn) {
         console.log("should redirect to home");
-        router.navigateByUrl('/home');
-        return false;
+        return router.navigateByUrl('/home').then(() => false);
       }
       console.log("should get through");
-      return true;
+      return of(true);
     })
   );
 };

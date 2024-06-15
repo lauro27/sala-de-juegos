@@ -1,4 +1,7 @@
 <div class="content">
-    <div class="user">{{msg?.user}}</div>
-    <div class="message">{{msg?.message}}</div>
+    <div class="userline">
+        <div class="user">{{ msg?.user }}</div>
+        <div class="date">{{ msg?.date | date:"dd/MM hh:mm" }}</div>
+    </div>
+    <div class="message">{{ msg?.message }}</div>
 </div>

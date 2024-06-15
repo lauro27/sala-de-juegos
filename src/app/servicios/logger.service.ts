@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, addDoc, CollectionReference, collectionData, query } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, CollectionReference, collectionData, query, where } from '@angular/fire/firestore';
 import { Log } from '../interfaces/log';
 import { Score } from '../interfaces/score';
 import { Survey } from '../interfaces/survey';
@@ -10,10 +10,12 @@ import { Observable } from 'rxjs';
 })
 export class LoggerService {
   private surveyCollection: CollectionReference;
+  private scoreCollection: CollectionReference;
   private db: Firestore = inject(Firestore);
 
   constructor() {
     this.surveyCollection= collection(this.db, 'surveys');
+    this.scoreCollection= collection(this.db, 'scores');
    }
 
   newLog(data: Log ){
@@ -34,6 +36,11 @@ export class LoggerService {
 
   getSurveys(){
     const qry = query(this.surveyCollection);
+    return collectionData(qry) as Observable<Survey[]>;
+  }
+
+  getScores(game: String){
+    const qry = query(this.scoreCollection, where("game", "==", game));
     return collectionData(qry) as Observable<Survey[]>;
   }
 }

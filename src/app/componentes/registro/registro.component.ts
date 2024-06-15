@@ -57,13 +57,23 @@ export class RegistroComponent{
             action: "Registro exitoso de usuario",
             date: new Date().toISOString()
           });
-        this.router.navigateByUrl('/');
+        this.authService
+          .login(rawForm.email, rawForm.password)
+          .subscribe({
+            next: () => {
+              this.router.navigateByUrl('/');
+            },
+            error: (err) => {
+              this.errorMessage = err.code;
+              this.showError(err.code, rawForm.email);
+            }
+          });
       },
       error: (err) => {
-        this.errorMessage = err.code
+        this.errorMessage = err.code;
         this.showError(err.code, rawForm.email);
       }
-  });
+    });
   }
 
   showError( text: string, email: string) {
