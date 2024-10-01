@@ -5,16 +5,16 @@
     </div>
     <div class="gameSelect">
         <div class = game>
-            <p-card header="Ahorcado">
+            <p-card header="Ahorcado" [style]="{ height: '40vh', padding: '20px', alignContent: 'center', justifyContent: 'space-evenly' }">
                 <img src="../../../assets/banners/hangman.png" alt="Ahorcado" class="gameBanner">
                 <p class="m-0">
                     El clasico juego de adivinar palabras
                 </p>
-            <button (click)="goHangman()" class="gameButton">Jugar</button>
+                <button (click)="goHangman()" class="gameButton">Jugar</button>
             </p-card>
         </div>
         <div class = game>
-            <p-card header="Mayor o menor">
+            <p-card header="Mayor o menor" [style]="{ height: '40vh', padding: '20px', alignContent: 'center', justifyContent: 'space-evenly' }">
                 <img src="../../../assets/banners/cardguess.png" alt="Mayor o menor" class="gameBanner">
                 <p class="m-0">
                     Adivine la siguiente carta
@@ -23,7 +23,7 @@
             </p-card>
         </div>
         <div class = game>
-            <p-card header="¿Quien es ese Pokémon?">
+            <p-card header="¿Quien es ese Pokémon?" [style]="{ height: '40vh', padding: '20px', alignContent: 'center', justifyContent: 'space-evenly' }">
                 <img src="../../../assets/banners/trivia.png" alt="¿Quien es ese Pokémon?" class="gameBanner">
                 <p class="m-0">
                     Hay mas de 1000 ahora. ¿Los puede reconocer?
@@ -32,7 +32,7 @@
             </p-card>
         </div>
         <div class = game>
-            <p-card header="Black Jack">
+            <p-card header="Black Jack" [style]="{ height: '40vh', padding: '20px', alignContent: 'center', justifyContent: 'space-evenly' }">
                 <img src="../../../assets/banners/blackjack.png" alt="Custom" class="gameBanner">
                 <p class="m-0">
                     El clasico juego de 21

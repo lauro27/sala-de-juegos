@@ -4,6 +4,13 @@
     flex-direction: column;
     flex-flow: center;
     align-content: center;
+    overflow-y: auto;
+    border:40px solid transparent;
+    border-image: url(../../../assets/9slice.png) 20 20 20 20 fill;
+    justify-content: center;
+    justify-self: center;
+    margin: auto;
+    width: 40%;
 }
 
 .formRow{
@@ -18,6 +25,17 @@
     gap: 15px;
     margin: 20px;
 }
+.formRowBtn{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-flow: center;
+    align-content: center;
+    align-items: center;
+    min-width: 50%;
+    flex-wrap: wrap;
+    gap: 15px;
+}
 .formItem{
     min-width: 20%;
 }
@@ -25,4 +43,11 @@
 .formField{
     margin-left:auto;
     justify-self: flex-end;
+}
+.btn{
+    width:40%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #90ee90;
+    box-shadow: 200px, gray;
 }

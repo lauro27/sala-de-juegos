@@ -96,7 +96,7 @@ export class RegistroComponent{
           msg = 'Usuario o contraseña incorrectos';
           break;
       default:
-        msg = text;
+        msg = "Error en registro";
         break;
     }
     this.messageService.add({
